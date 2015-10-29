@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 8, Part 1</title>
+    <script src="../js/jquery-2.1.4.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+<script>
+$(document).ready(function () {
+     
+//$(":button").css("padding", "12px");
+
+//1. Create a button on a web page. Use the .click() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked.      
+    $("#btn1").click(function (event) {
+        alert("The click button has been clicked.");
+    });
+     
+//2. Create a button on a web page. Attach the click event using the .bind() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked.
+    $("#btn2").bind("click", function (event) {
+        alert("The bind button has been clicked.");
+    });
+     
+//3. Create a button on a web page. Attach the click event using the .on() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked.
+    $("#btn3").on("click", function (event) {
+        alert("The on button has been clicked.");
+    });
+     
+//4. Create two buttons on a web page. Attach the click event to both buttons using a single handler using the .on() method. Again, an alert message should be displayed to the user indicating that a button has been clicked when either of the buttons are actually clicked.         
+    $("#btn4, #btn5").on("click", function (event) {
+        alert("Either Button 4 or 5 has been clicked.");
+    });
+     
+//5. Create a div on a web page. Use jQuery to set the div element to 400px wide and 400px high. Attach the click, mouseenter, and mouseleave events using the .on() method. Display an alert message to the user indicating that the div was either clicked on, the mouse entered it, or the mouse left it.
+    $("#div1").css("background", "#CCCCCC").width("400px").height("400px");
+    $("#div1").on({
+        click: function () {alert("You clicked on the div."); },
+        mouseenter: function () {alert("You hovered over the div."); },
+        mouseleave: function () {alert("Your mouse left the div."); }
+    });
+     
+//6. Rewrite the code from number 5. This time add a span tag to the web page. Display three different messages within the span tag when the user enters the div, leaves the div, or clicks on the div.
+     
+//$("#span1").css("background", "#CCCCCC").width("400px").height("400px");
+    $("#span1").on({
+        click: function () {alert("You clicked on the span."); },
+        mouseenter: function () {alert("You hovered over the span."); },
+        mouseleave: function () {alert("Your mouse left the span."); }
+    });
+     
+//7. Create a link within the web page and set its href attribute to browse to google.com. When the user clicks the link, first, prevent it from redirecting to that web site. Second, programmatically style the link so that its color changes to red. Third, display the name of the node that triggered the event within an alert box.
+    $("a").on("click", function (event) {
+        event.preventDefault();
+        $("a").css("color", "#FF0000");
+        alert(event.target.nodeName);
+    });
+     
+//8. Create a div tag within the web page. As the user resizes the browser, display the width and height of the browser window within the div tag. 
+    $("#div2").css("background", "#a8e5fc").width("160px").height("50px");
+    $(window).resize(function () {
+        var winWidth = ($(window).width());
+        var winHeight = ($(window).height());
+        $("#div2").text("width: " + winWidth.toString() + ", " + "height: " + winHeight.toString());
+    });
+     
+//9. Create a text field using the <input> tag. When the input has focus, set the background to a light gray color. When the input does not have focus, reset the background back to a white color. 
+    $("section input:text").focus(function () {
+        $("section input:text").css("background", "#CCCCCC");
+    });
+     
+    $("section input:text").blur(function () {
+        $("section input:text").css("background", "#FFFFFF");
+    });
+     
+//10. Add a form tag within a web page complete with 2 input fields: one that collects name and a second that collects an email. Add a submit button. When the user submits the form, if any one of the two fields is left empty, display an alert box to the user indicating that the fields are required. Give the field that the user left empty a red border. If both fields have values in them, set their borders to green.
+    $("#submit").click(function () {
+        event.preventDefault();
+        if ($("#name").val().length > 0 && ($("#email").val().length > 0)) {
+            $("#name").css("border-color", "#00FF00");
+            $("#email").css("border-color", "#00FF00");
+        } else if ($("#name").val().length > 0) {
+            $("#email").css("border-color", "#FF0000");
+            alert("These fields are required.");
+        } else {
+            $("#name").css("border-color", "#FF0000");
+            alert("These fields are required.");
+        }
+    });
+     
+});
+</script>
+    
+</head>
+<body>
+  
+<!--<button type="button" id="btn1">Click Me!</button>   -->
+<input type="button" id="btn1" value="Button 1 (click)">
+<input type="button" id="btn2" value="Button 2 (bind)">
+<input type="button" id="btn3" value="Button 3 (on)">
+<input type="button" id="btn4" value="Button 4 (on)">
+<input type="button" id="btn5" value="Button 5 (on)">
+<br><br>
+<div id="div1"></div>
+<br>
+<span id="span1">Span 1</span>        
+<br><br>
+<a href="http://www.google.com">Google link</a>
+<br><br>
+<div id="div2"></div>
+<br>
+<section>
+<!--<h2>#9</h2>-->
+<input type="text" name="input"> 
+</section>
+<br>
+<form>
+<input type="text" id="name" placeholder="Name"> 
+<input type="email" id="email" placeholder="Email">
+<br><br> 
+<input type="submit" id="submit" value="Submit">
+</form>
+<br><br>
+     
+</body>
+</html>
