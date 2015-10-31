@@ -1,0 +1,40 @@
+* {padding:0; margin:0;}
+
+body {
+font-size: 13px;
+font-family: Arial;    
+}
+
+#wrapper {
+margin: 0 auto;
+margin-top: 20px;    
+width: 750px;
+border: 1px solid #000000;
+background-color: #e5e5e5;    
+}
+
+#counter {
+padding: 10px;    
+}
+
+a {
+font-size: 18px;
+padding-right: 10px;
+text-decoration: none;
+color: #000000;    
+}
+    
+a:hover {
+color: #9cdbf2;    
+}
+
+a.active {
+color: #0a96c9;    
+}
+
+#one, #two, #three, #four, #five {
+width: 750px;
+height: 600px;
+overflow: hidden;
+background-color: #0defdd;    
+}
