@@ -34,7 +34,9 @@ $(document).ready(function () {
         } else if (currentButton === "clear") {
             $("#result").val("");
         } else {
-            $("#result").val($("#result").val() + currentButton);
+            $("#result").val(function (index, val) {
+                return val + currentButton;
+            });
         }
     }
         );

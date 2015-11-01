@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("ul li a:first").addClass("active");
 
     $("a").on("click", function () {
+        event.preventDefault();
         var clicked = $(this).attr("href");
         hideAll();
         $(clicked).show();
