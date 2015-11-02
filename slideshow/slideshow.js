@@ -3,7 +3,7 @@
 
 function hideAll(jQuery) {
     "use strict";
-    $("#one, #two, #three, #four, #five").hide(0);
+    $("#one, #two, #three, #four, #five, #six, #seven, #eight").hide(0);
 }
 $(document).ready(hideAll);
 

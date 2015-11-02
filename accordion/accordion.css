@@ -34,7 +34,7 @@ width: 467px;
 margin: 6px;    
 padding:6px 10px 7px 40px;
 display:inline-block;
-background:#777777;
+background:#cb3f0b ;
 color:#FFFFFF;
 font-weight: bold;    
 text-decoration:none;
@@ -49,8 +49,10 @@ background-position: 6px 4px;
 }
 
 .title a.active {
-background:#CCCCCC;
+background:#fcaa3b;
 color:#FFFFFF;
 background-image: url("images/minus.png");
 background-repeat: no-repeat;
-background-position: 6px 4px; }
+background-position: 6px 4px; 
+border-radius: 6px 6px 0 0;
+}
